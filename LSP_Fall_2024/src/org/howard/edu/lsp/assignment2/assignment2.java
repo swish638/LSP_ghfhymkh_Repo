@@ -23,13 +23,16 @@ import java.util.HashMap;
 
 public class assignment2 {
     public static void main(String[] args) {
-    	String filePath = "src/org/howard/edu/lsp/assignment2/words.txt";    
-    	//String fileName = "ver4testinputfile.txt"; // The path to the file
+    	String filePath = "src/org/howard/edu/lsp/assignment2/words.txt"; //for Professor to test using path   
+    	//String fileName = "ver4testinputfile.txt"; // using my testing file so fileName
     	HashMap<String, Integer> tokenCounts = new HashMap<>();
 
     	try {
     		// trying to alter the delimiters
-    		Scanner scanner = new Scanner(new File(fileName)).useDelimiter("[\\?,.:;\"'`\\!\\(\\)\t 0 1 2 3 4 5 6 7 8 9 \n\s- ]");
+    		Scanner scanner = new Scanner(new File(filePath)).useDelimiter("[\\?,.:;\"'`\\!\\(\\)\t 0 1 2 3 4 5 6 7 8 9 \n\s- ]"); 
+    			//Professor's test filePath and match line 26
+    		// Scanner scanner = new Scanner(new File(fileName)).useDelimiter("[\\?,.:;\"'`\\!\\(\\)\t 0 1 2 3 4 5 6 7 8 9 \n\s- ]"); 
+    			//my test fileName and match line 27    		
     		//int tokenCounts = 0;
     		// Reading the file word by word (token by token)
     		while (scanner.hasNext()) {
