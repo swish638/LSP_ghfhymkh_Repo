@@ -32,7 +32,9 @@ public class assignment2 {
 				////Scanner scanner = new Scanner(new File(filePath)).useDelimiter("[\\?,.:;\"'`\\!\\(\\)\t 0 1 2 3 4 5 6 7 8 9 \n\s- ]");  
 
 				//filePath to read from my TextTest.txt
-				Scanner scanner = new Scanner(new File(filePath)).useDelimiter("[\\?,.:;\"'`\\!\\(\\)\t 0 1 2 3 4 5 6 7 8 9 \n\s - /]");
+				Scanner scanner = new Scanner(new File(filePath)).useDelimiter("[\\?,.:;\"\'`!()\t 0 1 2 3 4 5 6 7 8 9 \n\\s+\r - /]");
+				//Went through each of the delimiters to see if they needed an escape sequence. 
+				//Added escape sequence for whitespace ("\\s+") and did not need one for exclamation mark
 				System.out.println("Printing tokens to see what is being counted");
 				
 				while (scanner.hasNext()) {                                       	// Reading the file word by word (token by token)
