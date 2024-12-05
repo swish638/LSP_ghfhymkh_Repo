@@ -104,8 +104,8 @@ class TestIntegerSet {
     
     
     @Test
-    @DisplayName("Test case for largest element in set (with empty and non-empty set)")
-    void testLargest() {
+    @DisplayName("Test case for largest element in set (with non-empty set)")
+    void testLargest() throws EmptySetException {
     	IntegerSet set = new IntegerSet();
     	set.add(3);
     	set.add(4);
@@ -113,8 +113,6 @@ class TestIntegerSet {
     	assertEquals(946, set.largest(), "Largest element is 946");
     	
     	set.clear();
-    	Exception exception = assertThrows(IllegalStateException.class, set::largest);
-    	assertEquals("Empty set", exception.getMessage(), "Expected exception message for empty set");
     	
     	set.add(10);
     	assertEquals(10, set.largest(), "Largest element is 10");
@@ -124,7 +122,7 @@ class TestIntegerSet {
     
     @Test
     @DisplayName("Test largest with negative and positive values")
-    void testLargestWithMixedValues() {
+    void testLargestWithMixedValues() throws EmptySetException {
         IntegerSet set = new IntegerSet();
         set.add(-10);
         set.add(5);
@@ -133,10 +131,32 @@ class TestIntegerSet {
     }
     
     
+    @Test
+    @DisplayName("Test largest with empty set")
+    void test_EmptySetExceptionOnLargest() throws EmptySetException {
+    	IntegerSet set = new IntegerSet();
+    	set.clear();
+    	Throwable exception = assertThrows(EmptySetException.class, () -> set.largest() );
+    	assertNotNull(exception.getMessage());
+    	
+    }
+    
+    
+    
     
     @Test
-    @DisplayName("Test case for smallest element in set (with empty and non-empty set)")
-    void testSmallest() {
+    @DisplayName("Test smallest with empty set")
+    void test_EmptySetExceptionOnSmallest() throws EmptySetException {
+    	IntegerSet set = new IntegerSet();
+    	set.clear();
+    	Throwable exception = assertThrows(EmptySetException.class, () -> set.smallest() );
+    	assertNotNull(exception.getMessage());
+    	
+    }
+    
+    @Test
+    @DisplayName("Test case for smallest element in set (with non-empty set)")
+    void testSmallest() throws EmptySetException {
     	IntegerSet set = new IntegerSet();
     	set.add(3);
     	set.add(4);
@@ -144,18 +164,20 @@ class TestIntegerSet {
     	assertEquals(3, set.smallest(), "Smallest element is 3");
     	
     	set.clear();
-    	Exception exception = assertThrows(IllegalStateException.class, set::smallest);
-    	assertEquals("Empty set", exception.getMessage(), "Expected exception message for empty set");
     	
       	set.add(10);
-    	assertEquals(10, set.largest(), "Smallest element is 10");
+    	assertEquals(10, set.smallest(), "Smallest element is 10");
     }
+    
+    
+    
+    
     
     
     
     @Test
     @DisplayName("Test smallest with negative and positive values")
-    void testSmallestWithMixedValues() {
+    void testSmallestWithMixedValues() throws EmptySetException {
         IntegerSet set = new IntegerSet();
         set.add(-10);
         set.add(5);

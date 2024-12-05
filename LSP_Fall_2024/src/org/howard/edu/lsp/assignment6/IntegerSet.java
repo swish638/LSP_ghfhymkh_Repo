@@ -11,10 +11,11 @@ import java.util.List;
  * such as adding elements, removing elements, and checking if a set contains a certain element.
  * This class also provides methods to perform union, intersection, and difference
  */
+
+
 public class IntegerSet {
 		//store the set elements in ArrayList
 		private List<Integer> set = new ArrayList<>();
-		
 		
 		/**
 		 * Default Constructor, initializes empty integer set
@@ -101,10 +102,12 @@ public class IntegerSet {
 		 * Returns largest element in the integer set
 		 * 
 		 * @return largest integer
-		 * throws illegalstateexception if the set is empty (No maximum can exist in this case)
+		 * throws EmptySetException if the set is empty (No maximum can exist in this case)
 		 */
-		public int largest() {
-			if (isEmpty()) throw new IllegalStateException("Empty set");
+		public int largest() throws EmptySetException{
+			if (isEmpty()) { 
+				throw new EmptySetException("Empty set");
+			}
 			int largest = set.get(0);
 			for(int value : set) {
 				if(value > largest) {
@@ -124,10 +127,12 @@ public class IntegerSet {
 		 * Returns smallest element in the integer set
 		 * 
 		 * @return smallest integer
-		 * throws illegalstateexception if the set is empty (No minimum can exist in this case)
+		 * throws EmptySetException if the set is empty (No minimum can exist in this case)
 		 */
-		public int smallest() {
-			if (isEmpty()) throw new IllegalStateException("Empty set");
+		public int smallest() throws EmptySetException{
+			if (isEmpty()) { 
+				throw new EmptySetException("Empty set");
+			}
 			int smallest = set.get(0);
 			for(int value : set) {
 				if(value < smallest) {
