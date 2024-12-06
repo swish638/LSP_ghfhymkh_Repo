@@ -112,7 +112,7 @@ class TestMathUtils {
 	void PrimeWithPrimeNumbers()
 	{
 		MathUtils math = new MathUtils();
-		assertTrue(math.isPrime(7));
+		assertTrue(math.isPrime(859));
 		
 	}
 	

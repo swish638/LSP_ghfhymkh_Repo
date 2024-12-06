@@ -1,5 +1,10 @@
 package org.howard.edu.lsp.finalexam.question1;
 
+
+//source:  https://www.quora.com/What-are-some-good-test-cases-to-test-a-program-that-tests-if-a-number-is-prime-or-not-Ive-tried-1-and-0-and-1-and-2-I-need-more-representative-cases
+//source:  https://oeis.org/wiki/Higher-order_prime_numbers#:~:text=%7B2%2C%203%2C%205%2C%2011%2C%2017%2C%2031,%2C%20859%2C%20...%7D
+//source:  https://www.javatpoint.com/how-to-write-test-cases-in-java
+
 public class MathUtils {
     /**
      * Returns the factorial of a given non-negative integer.
